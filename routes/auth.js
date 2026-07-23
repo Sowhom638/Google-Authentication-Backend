@@ -38,7 +38,7 @@ router.post('/google', async (req, res) => {
     res.cookie('token', token, {
       httpOnly: true,
       secure: process.env.NODE_ENV === 'production',
-      sameSite: process.env.NODE_ENV === 'production' ? 'none' : 'lax', // ✅ 'none' for cross-site,
+      sameSite: 'none', // ✅ 'none' for cross-site,
       maxAge: 7 * 60 * 60 * 1000, // 7 hours
     });
 
