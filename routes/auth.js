@@ -53,7 +53,7 @@ router.post('/google', async (req, res) => {
 
 // GET /api/auth/me — return current user if cookie valid
 router.get('/me', authenticate, async (req, res) => {
-  const user = await User.findById(req.user.id).select('-googleId -_id');
+  const user = await User.findById(req.user.id);
   if (!user) return res.status(404).json({ message: 'User not found' });
   res.json({ user });
 });
